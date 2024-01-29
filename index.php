@@ -14,26 +14,36 @@
     <!-- CONTENITORE #APP -->
     <div id="app">
         <div class="container my-5">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-12">
                     <h1 class="text-primary text-center">PHP ToDo List JSON</h1>
                 </div>
-                <div class="col-12">
-                    <ul class="list-unstyled">
-                        <li v-for="todo, key in todoList" :key="key">{{ todo.text }}</li>
+                <div class="col-8 pt-5">
+                    <ul class="list-group">
+                        <li class="list-group-item" v-for="todo, key in todoList" :key="key">{{ todo.text }}</li>
                     </ul>
                 </div>
-                <div class="col-12">
-
+                <div class="col-12 pt-4">
+                    <div class="row justify-content-center">
+                        <div class="col-3"></div>
+                        <div class="col-6 d-flex justify-content-center">
+                            <div class="col-6">
+                                <input type="text" @keyup.enter="updateTodoList" v-model="todoItem" class="form-control" placeholder="Inserisci elemento">
+                            </div>
+                            <div class="col-2 ms-3">
+                                <button type="button" @click="updateTodoList" class="btn btn-success">Invia</button>
+                            </div>
+                        </div>
+                        <div class="col-3"></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- SCRIPT JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js" integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> <!-- Collegamento ad axios -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> <!-- Collegamento a vuejs -->
-    <script type="text/javascript" src="./js/script.js"></script> <!-- Collegamento al file js -->
+        <!-- SCRIPT JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js" integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> <!-- Collegamento ad axios -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> <!-- Collegamento a vuejs -->
+        <script type="text/javascript" src="./js/script.js"></script> <!-- Collegamento al file js -->
 </body>
 
 </html>

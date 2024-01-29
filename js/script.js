@@ -7,6 +7,7 @@ createApp({
     data() {
         return {
             apiUrl: 'server.php',
+            todoItem: '',
             todoList: [],
         }
     }, // Chiusura data
@@ -17,6 +18,21 @@ createApp({
 
     // DEFINISCO IL METODO methods {} NEL QUALE INSERIRO' LE FUNZIONI
     methods: {
+        updateTodoList() {
+            const data = {
+                item: this.todoItem,
+                done: false
+            }
+
+            axios.post(this.apiUrl, data, {
+                headers: { 'Content-type': 'multipart/form-data' }
+            }).then((response) => {
+                this.todoItem = '';
+
+                this.todoList = response.data;
+            })
+        },
+
         getTodoList() {
             axios.get(this.apiUrl).then((response) => {
                 this.todoList = response.data;
