@@ -1,3 +1,31 @@
 [
-    
+    {
+        "text": "Fare la spesa",
+        "done": false    
+    },
+    {
+        "text": "Fare i compiti",
+        "done": false
+    },
+    {
+        "text": "Portare fuori il cane",
+        "done": false
+    },
+    {
+        "text": "Portare fuori il coccodrillo",
+        "done": false
+    },
+    {
+        "text": "Addestrare una poiana",
+        "done": false
+    },
+    {
+        "text": "Sollevare la trave del vicino",
+        "done": false
+    },
+    {
+        "text": "Prendere le medicine",
+        "done": false
+    }
+
 ]

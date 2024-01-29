@@ -20,11 +20,11 @@
                 </div>
                 <div class="col-12">
                     <ul class="list-unstyled">
-                        
+                        <li v-for="todo, key in todoList" :key="key">{{ todo.text }}</li>
                     </ul>
                 </div>
                 <div class="col-12">
-                    
+
                 </div>
             </div>
         </div>
