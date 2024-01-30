@@ -18,9 +18,22 @@
                 <div class="col-12">
                     <h1 class="text-primary text-center">PHP ToDo List JSON</h1>
                 </div>
+                <!-- CORPO DELLA LISTA -->
                 <div class="col-8 pt-5">
                     <ul class="list-group">
-                        <li class="list-group-item" v-for="todo, key in todoList" :key="key">{{ todo.text }}</li>
+                        <li class="list-group-item d-flex justify-content-between" v-for="(todo, index) in todoList" :key="index">
+                            <div @click="toggleDone(index)" class="cursor" :class="todoList[index].done ? 'text-decoration-line-through' : ''">
+                                <span>{{ todo.text }}</span>
+                            </div>
+                            <!-- BOTTONI -->
+                            <div class="buttons">
+                                <!-- BOTTONE CHECK -->
+                                <button class="btn btn-sm btn-square mx-1" :class="todo.done ? 'btn-dark' : 'btn-primary'" @click="toggleDone(index)">
+                                    <i class="fas" :class="todo.done ? 'fa-times' : 'fa-check'">
+                                    </i>
+                                </button>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-12 pt-4">
@@ -30,8 +43,8 @@
                             <div class="col-6">
                                 <input type="text" @keyup.enter="updateTodoList" v-model="todoItem" class="form-control" placeholder="Inserisci elemento">
                             </div>
-                            <div class="col-2 ms-3">
-                                <button type="button" @click="updateTodoList" class="btn btn-success">Invia</button>
+                            <div class="col-4 ms-3">
+                                <button type="button" @click="updateTodoList" class="btn btn-success">Aggiungi alla Lista</button>
                             </div>
                         </div>
                         <div class="col-3"></div>
@@ -39,11 +52,11 @@
                 </div>
             </div>
         </div>
-
-        <!-- SCRIPT JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js" integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> <!-- Collegamento ad axios -->
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> <!-- Collegamento a vuejs -->
-        <script type="text/javascript" src="./js/script.js"></script> <!-- Collegamento al file js -->
+    </div>
+    <!-- SCRIPT JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js" integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> <!-- Collegamento ad axios -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> <!-- Collegamento a vuejs -->
+    <script type="text/javascript" src="./js/script.js"></script> <!-- Collegamento al file js -->
 </body>
 
 </html>

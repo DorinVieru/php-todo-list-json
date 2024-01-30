@@ -18,26 +18,42 @@ createApp({
 
     // DEFINISCO IL METODO methods {} NEL QUALE INSERIRO' LE FUNZIONI
     methods: {
+        // FUNZIONE PER AGGIUNGERE UNA TASK
         updateTodoList() {
             const data = {
                 item: this.todoItem,
-                done: false
+            }
+            
+            axios.post(this.apiUrl, data, {
+                headers: { 'Content-type': 'multipart/form-data' }
+            }).then((response) => {
+                this.todoItem = '';
+                
+                this.todoList = response.data;
+            })
+        },
+
+        // FUNZIONE PER "PRENDERE" I VALORI DELLA TODO LIST DALL'API
+        getTodoList() {
+            axios.get(this.apiUrl).then((response) => {
+                this.todoList = response.data;
+            })
+        },
+
+        // FUNZIONE PER SEGNARE LA TASK COME COMPLETATA
+        toggleDone(index) {
+            const data = {
+                indexItem: index
             }
 
             axios.post(this.apiUrl, data, {
                 headers: { 'Content-type': 'multipart/form-data' }
             }).then((response) => {
-                this.todoItem = '';
-
                 this.todoList = response.data;
             })
         },
 
-        getTodoList() {
-            axios.get(this.apiUrl).then((response) => {
-                this.todoList = response.data;
-            })
-        }
+        
     }, // Chiusura methods
 
     // CHIUSURA createApp CON .mount("ID")
