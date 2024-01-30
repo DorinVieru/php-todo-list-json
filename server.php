@@ -33,6 +33,15 @@
         file_put_contents('todo-list.json', json_encode($list));  // SALVO IL NUOVO CONTENUTO NEL FILE todo-list.json
     }
 
+    // VERIFICA PER ELIMINARE UNA TASK
+    if (isset($_POST['indexItemDelete'])) {
+        $index = $_POST['indexItemDelete'];
+
+        array_splice($list, $index, 1);
+
+        file_put_contents('todo-list.json', json_encode($list));  // SALVO IL NUOVO CONTENUTO NEL FILE todo-list.json
+    }
+
     // AGGIUNGO ALL'HEADER DELLA RISPOSTA CHE STO PASSANDO UN DATO JSON
     header('Content-type: application/json');
 

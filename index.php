@@ -32,6 +32,10 @@
                                     <i class="fas" :class="todo.done ? 'fa-times' : 'fa-check'">
                                     </i>
                                 </button>
+                                <!-- BOTTONE CANCELLA -->
+                                <button class="btn btn-sm btn-square btn-danger mx-1" @click="deleteTodo(index)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
                             </div>
                         </li>
                     </ul>

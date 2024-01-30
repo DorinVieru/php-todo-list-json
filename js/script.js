@@ -53,7 +53,18 @@ createApp({
             })
         },
 
-        
+        // FUNZIONE PER ELIMINARE LA TASK
+        deleteTodo(index){
+            const data = {
+                indexItemDelete: index
+            }
+
+            axios.post(this.apiUrl, data, {
+                headers: { 'Content-type': 'multipart/form-data' }
+            }).then((response) => {
+                this.todoList = response.data;
+            })
+        }
     }, // Chiusura methods
 
     // CHIUSURA createApp CON .mount("ID")
